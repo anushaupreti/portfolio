@@ -1,16 +1,39 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import './style.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import bg from './dreamplace.webp';
+import './style.css';
+import Home from './pages/home';
+import About from './pages/about';
+import Resume from './pages/resume';
+import Project from './pages/project';
+import Contact from './pages/contact';
 
 const App = () => {
-  return (
-    <div>
-      <img src={bg}></img>
-      Hello dhanusha
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />,
+    },
+    {
+      path: '/about',
+      element: <About />,
+    },
+    {
+      path: '/resume',
+      element: <Resume />,
+    },
+    {
+      path: '/project',
+      element: <Project />,
+    },
+    {
+      path: '/contact',
+      element: <Contact />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 };
 
 createRoot(document.querySelector('#root')).render(<App />);
