@@ -2,7 +2,9 @@ import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+
 import Home from './pages/home';
 import About from './pages/about';
 import Resume from './pages/resume';
