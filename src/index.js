@@ -6,32 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 import Home from './pages/home';
-import About from './pages/about';
-import Resume from './pages/resume';
-import Project from './pages/project';
-import Contact from './pages/contact';
+import Layout from './components/Layout';
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Home />,
-    },
-    {
-      path: '/about',
-      element: <About />,
-    },
-    {
-      path: '/resume',
-      element: <Resume />,
-    },
-    {
-      path: '/project',
-      element: <Project />,
-    },
-    {
-      path: '/contact',
-      element: <Contact />,
+      element: (
+        <Layout>
+          <Home />
+        </Layout>
+      ),
     },
   ]);
 

@@ -1,10 +1,20 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import About from './about';
+import Resume from './resume';
+import Project from './project';
+import Contact from './contact';
+// import Footer from
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      <div id=''>
+        <h1>Home</h1>
+      </div>
+      <About />
+      <Resume />
+      <Project />
+      <Contact />
     </div>
   );
 };

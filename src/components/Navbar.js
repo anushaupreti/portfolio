@@ -1,36 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { HashLink, NavHashLink, genericHashLink } from 'react-router-hash-link';
 
 const navLinks = [
   {
     id: 1,
     name: 'Home',
-    path: '/',
+    path: '',
   },
   {
     id: 2,
     name: 'About',
-    path: '/about',
+    path: 'about',
   },
   {
     id: 3,
     name: 'Resume',
-    path: '/resume',
+    path: 'resume',
   },
   {
     id: 4,
     name: 'Project',
-    path: '/project',
+    path: 'project',
   },
   {
     id: 5,
     name: 'Contact',
-    path: '/contact',
+    path: 'contact',
   },
 ];
 
 const Navbar = () => {
+  const MyHashLink = genericHashLink(HashLink);
+
   return (
     <NavWrapper>
       <LogoTitle>
@@ -40,7 +43,19 @@ const Navbar = () => {
       <NavLinks>
         {navLinks.map((navLink) => (
           <NavLink key={navLink.id}>
-            <Link to={navLink.path}>{navLink.name}</Link>
+            <MyHashLink
+              smooth
+              to={`#${navLink.path}`}
+              activeClassName='selected'
+              activeStyle={(test) => {
+                console.log('test', test);
+              }}
+              isActive={(test) => {
+                console.log('test', test);
+              }}
+            >
+              {navLink.name}
+            </MyHashLink>
           </NavLink>
         ))}
       </NavLinks>
@@ -53,8 +68,12 @@ const NavWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 50px;
-  // padding: 20px 0px;
+  padding: 10px 50px 0;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 `;
 
 const LogoTitle = styled.h1`
@@ -72,8 +91,16 @@ const NavLinks = styled.ul`
 const NavLink = styled.li`
   margin: 0 5px;
 
+  :hover {
+    border-bottom: 2px solid purple;
+  }
+
+  .active {
+    border-bottom: 2px solid purple;
+  }
+
   a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
   }
 `;

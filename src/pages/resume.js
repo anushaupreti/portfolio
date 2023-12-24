@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import { CircularProgressbar } from 'react-circular-progressbar';
 
@@ -7,8 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const Resume = () => {
   return (
-    <div>
-      <Navbar />
+    <div id='resume'>
       <Container>
         <h1>Skills</h1>
         <Cards>

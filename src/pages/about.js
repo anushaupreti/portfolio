@@ -5,8 +5,7 @@ import Navbar from '../components/Navbar';
 
 const About = () => {
   return (
-    <Wrapper>
-      <Navbar />
+    <Wrapper id='about'>
       <Container>
         <img src=''></img>
         <Right>

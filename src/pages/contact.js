@@ -42,8 +42,7 @@ const contacts = [
 
 const Contact = () => {
   return (
-    <div>
-      <Navbar />
+    <div id='contact'>
       <Container>
         <h1>Contact Me</h1>
         <p>You can contact me from here:</p>
@@ -65,7 +64,7 @@ const Contact = () => {
                 <Card.Body>
                   {contact.description.includes('https') ||
                   contact.description.includes('gmail') ? (
-                    <Card.Link>
+                    <Card.Text>
                       {contact.description.includes('gmail') ? (
                         <Link to={`mailto:${contact.description}`}>
                           {contact.description}
@@ -75,7 +74,7 @@ const Contact = () => {
                           {contact.description}
                         </Link>
                       )}
-                    </Card.Link>
+                    </Card.Text>
                   ) : (
                     <Card.Text>{contact.description}</Card.Text>
                   )}

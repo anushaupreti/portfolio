@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import { Card } from 'react-bootstrap';
 
@@ -37,8 +36,7 @@ const projects = [
 
 const Project = () => {
   return (
-    <div>
-      <Navbar />
+    <div id='project'>
       <Container>
         <h1>Projects</h1>
         <Cards>
@@ -46,7 +44,7 @@ const Project = () => {
             return (
               <Card
                 bg={'primary'}
-                key={'test'}
+                key={`${project.id}`}
                 text={'primary' === 'light' ? 'dark' : 'white'}
                 style={{ width: '18rem' }}
                 className='mb-2'
