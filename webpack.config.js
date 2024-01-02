@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    assetModuleFilename: 'images/[ext][query]',
   },
   module: {
     rules: [
@@ -25,8 +26,8 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(jpe?g|png|gif|svg|webp)$/i,
-        type: 'asset',
+        test: /\.(jpg|jpeg|png|gif|svg|webp)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

@@ -50,7 +50,9 @@ const About = () => {
                     </tr>
                   </tbody>
                 </Table>
-                <p>10 Projects completed</p>
+                <Project>
+                  <span> 10 </span>Projects completed
+                </Project>
                 <Button>Download CV</Button>
               </div>
             </Right>
@@ -81,6 +83,7 @@ const Right = styled.div`
   flex: 1;
   width: 100%;
   padding: 40px 15px;
+  padding-left: 10px;
 `;
 
 const Description = styled.p`
@@ -89,22 +92,34 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
-  padding: 10px;
+  padding: 15px;
   border: none;
-  background-color: purple;
+  background-color: #7b6079;
   color: white;
-  border-radius: 10px;
+  border-radius: 50px;
+  // margin-left: 20px;
 `;
 
 const Table = styled.table`
-  font-weight: 400;
   padding: 40px;
-
-  margin: 40px 0px;
-  tr {
-    line-height: 35px;
+  margin: 50px 0px;
+  line-height: 40px;
+  td tr {
+    // line-height: 50px;
   }
   .value {
     color: #999;
+    padding-left: 50px;
+  }
+  :not(value) {
+    font-weight: 600;
+  }
+`;
+const Project = styled.p`
+  font-size: 24px;
+  font-weight: 400;
+  span {
+    color: #7b6079;
+    font-weight: 600;
   }
 `;

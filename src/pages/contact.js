@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import styled from 'styled-components';
-import { Card } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
 import { FaAddressCard, FaLinkedin } from 'react-icons/fa';
 import { FaPhoneVolume, FaGithub } from 'react-icons/fa6';
 import { IoMdMailUnread } from 'react-icons/io';
@@ -44,44 +44,15 @@ const Contact = () => {
   return (
     <div id='contact'>
       <Container>
-        <h1>Contact Me</h1>
-        <p>You can contact me from here:</p>
-        <Cards>
-          {contacts.map((contact) => {
-            return (
-              <Card
-                bg={'light'}
-                key={contact.title}
-                // text={'primary' === 'dark' ? 'dark' : 'white'}
-                text={'dark'}
-                style={{ width: '18rem' }}
-                className='mb-2 text-center'
-              >
-                <Card.Header className='d-flex align-items-center flex-column'>
-                  {contact.icon}
-                  {contact.title}
-                </Card.Header>
-                <Card.Body>
-                  {contact.description.includes('https') ||
-                  contact.description.includes('gmail') ? (
-                    <Card.Text>
-                      {contact.description.includes('gmail') ? (
-                        <Link to={`mailto:${contact.description}`}>
-                          {contact.description}
-                        </Link>
-                      ) : (
-                        <Link to={`${contact.description}`}>
-                          {contact.description}
-                        </Link>
-                      )}
-                    </Card.Text>
-                  ) : (
-                    <Card.Text>{contact.description}</Card.Text>
-                  )}
-                </Card.Body>
-              </Card>
-            );
-          })}
+        <TitleContainer>
+          <Header>Contact Me</Header>
+          <p>You can contact me from here:</p>
+        </TitleContainer>
+        <Cards className='row d-flex mb-5'>
+          <div className='card col-md-6 col-lg-3 d-flex'>part1</div>
+          <div className='card col-md-6 col-lg-3 d-flex'>part2</div>
+          <div className='card col-md-6 col-lg-3 d-flex'>part3</div>
+          <div className='card col-md-6 col-lg-3 d-flex'>part4</div>
         </Cards>
       </Container>
     </div>
@@ -90,17 +61,38 @@ const Contact = () => {
 
 export default Contact;
 const Container = styled.div`
-  margin-left: 10px;
-  margin-right: 10px;
+  // margin-left: 15px;
+  // margin-right: 15px;
 `;
+
 const Cards = styled.div`
+  height: 300px;
+  background-color: red;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 2px;
   border: none;
+  .card {
+    background-color: #7b6079;
+    width: 18vw;
+    margin: 25px;
+    align-items: center;
+    border-radius: 4px;
+  }
 `;
-const OwnCard = styled.div`
-  border: 1px solid red;
-  width: 40vw;
+
+const TitleContainer = styled.div`
   text-align: center;
+  // margin: 50px 0px 0px;
+  padding: 65px 0px;
+
+  p {
+    color: #999;
+  }
+`;
+
+const Header = styled.h1`
+  font-weight: 700;
+  font-size: 50px;
 `;
