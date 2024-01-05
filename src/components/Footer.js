@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import styled from 'styled-components';
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 function Footer() {
   return (
@@ -15,26 +16,46 @@ function Footer() {
                 Vokalia and Consonantia, there live the blind texts.
               </p>
             </div>
-            <div>
-              <FaTwitter style={{ margin: '0 5px' }} />
-              <FaLinkedin />
-              <FaGithub />
+            <div style={{ display: 'flex' }}>
+              <div className='circle'>
+                <FaTwitter style={{ margin: '0 10px', fontSize: '1.8rem' }} />
+              </div>
+              <div className='circle'>
+                <FaLinkedin style={{ margin: '0 10px', fontSize: '1.5rem' }} />
+              </div>
+              <div className='circle'>
+                <FaGithub style={{ margin: '0 10px', fontSize: '1.5rem' }} />
+              </div>
             </div>
           </div>
           <div className='col-md  footer-center'>
             <h2>Links</h2>
             <ul>
               <li>
-                <a href=''>Home</a>
+                <a href=''>
+                  {' '}
+                  <FaArrowRightLong style={{ marginRight: '5px' }} />
+                  Home
+                </a>
               </li>
               <li>
-                <a href='#about'>About</a>
+                <a href='#about'>
+                  {' '}
+                  <FaArrowRightLong style={{ marginRight: '5px' }} />
+                  About
+                </a>
               </li>
               <li>
-                <a href='#project'>Project</a>
+                <a href='#project'>
+                  <FaArrowRightLong style={{ marginRight: '5px' }} />
+                  Project
+                </a>
               </li>
               <li>
-                <a href='#contact'>Contact</a>
+                <a href='#contact'>
+                  <FaArrowRightLong style={{ marginRight: '5px' }} />
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
@@ -58,7 +79,7 @@ export default Footer;
 const Wrapper = styled.footer`
   // height: 20vh;
   // border: 2px solid red;
-  font-size: 10px;
+  font-size: 16px;
   background: #000000;
   padding: 7em 0;
   z-index: 0;
@@ -68,9 +89,25 @@ const Wrapper = styled.footer`
   font-weight: 400;
   color: #999;
 
+  h2 {
+    // text-align: center;
+  }
+
+  .circle {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+  }
+
   .footer-center {
     ul {
       list-style: none;
+      padding-left: 0;
     }
     a {
       color: #999;
