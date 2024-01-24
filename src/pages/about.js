@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import ANU from '../assets/anu.jpeg';
 
 const About = () => {
   return (
     <Wrapper id='about'>
       <Container>
         <div className='row' style={{ height: '90vh' }}>
-          <div className='col-md' style={{ background: 'pink' }}>
-            <img src=''></img>
+          <div className='col-md'>
+            <img src={ANU} />
           </div>
           <div className='col-md'>
             <Right>
@@ -74,8 +75,9 @@ const Container = styled.div`
   justify-content: space-between;
   img {
     // width: 800px;
+    width: 50vw;
     height: 80vh;
-    background-color: pink;
+    // background-color: pink;
   }
 `;
 

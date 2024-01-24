@@ -59,7 +59,7 @@ const Contact = () => {
         <Cards>
           {contacts.map((contact) => {
             return (
-              <Card>
+              <Card key={contact.id}>
                 <div className='circle'>{contact.icon}</div>
                 <h4>{contact.title}</h4>
                 <p>{contact.description}</p>
