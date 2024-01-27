@@ -11,7 +11,7 @@ const Resume = () => {
       <Container>
         <div className='row'>
           <div className='col-md-3'>
-            <nav
+            <div
               id='navi'
               style={{
                 fontWeight: '800',
@@ -19,7 +19,7 @@ const Resume = () => {
                 textDecoration: 'none',
               }}
             >
-              <ul>
+              <Ul>
                 <li>
                   <a href='#page-1'>Education</a>
                 </li>
@@ -29,8 +29,8 @@ const Resume = () => {
                 <li>
                   <a href='#page-3'>Skills</a>
                 </li>
-              </ul>
-            </nav>
+              </Ul>
+            </div>
           </div>
           <div className='col-md-9'>
             <div id='page-1' className='page one'>
@@ -389,6 +389,29 @@ const Resume = () => {
 };
 
 export default Resume;
+
+const Ul = styled.div`
+  li {
+    font-weight: 700;
+    list-style: none;
+    margin-bottom: 10px;
+    :hover {
+      a {
+        color: #7b6079 !important;
+        margin-left: 20px;
+      }
+    }
+    // text-decoration: none;
+  }
+  a {
+    text-decoration: none;
+    color: #000000;
+    // :hover {
+    //   color: #7b6079;
+    //   margin-left: 20px;
+    // }
+  }
+`;
 
 const Container = styled.div`
   margin-top: 40px;

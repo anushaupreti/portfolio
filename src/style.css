@@ -7,8 +7,25 @@ box-sizing: border-box;
 
 body{
   font-family: 'Poppins', sans-serif;
-  /* background-color: #212121; */
-  /* color: #fff; */
-    overflow-x: hidden !important;
+  overflow-x: hidden !important;
 }
 
+nav {
+  height: 4em;
+  position: sticky;
+  top: 0;
+  line-height: 4em;
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-family: sans-serif;
+  transition: transform 150ms ease-in-out;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-bar--hidden {
+  transform: translateY(-100%);
+}

@@ -31,11 +31,55 @@ const navLinks = [
   },
 ];
 
+function useScrollListener() {
+  const [data, setData] = React.useState({
+    x: 0,
+    y: 0,
+    lastX: 0,
+    lastY: 0,
+  });
+
+  // set up event listeners
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setData((last) => {
+        return {
+          x: window.scrollX,
+          y: window.scrollY,
+          lastX: last.x,
+          lastY: last.y,
+        };
+      });
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  return data;
+}
+
 const Navbar = () => {
+  const [navClassList, setNavClassList] = React.useState([]);
+  const scroll = useScrollListener();
+
+  // update classList of nav on scroll
+  React.useEffect(() => {
+    const _classList = [];
+
+    if (scroll.y > 150 && scroll.y - scroll.lastY > 0) {
+      _classList.push('nav-bar--hidden');
+    }
+
+    setNavClassList(_classList);
+  }, [scroll.y, scroll.lastY]);
   const MyHashLink = genericHashLink(HashLink);
 
   return (
-    <NavWrapper>
+    <nav className={navClassList.join(' ')}>
       <LogoTitle>
         <span className='firstLetter'>A</span>
         <span className='other'>nusha</span>
@@ -59,7 +103,7 @@ const Navbar = () => {
           </NavLink>
         ))}
       </NavLinks>
-    </NavWrapper>
+    </nav>
   );
 };
 export default Navbar;
@@ -79,6 +123,7 @@ const NavWrapper = styled.nav`
 const LogoTitle = styled.h1`
   font-size: 30px;
   font-weight: 900;
+  z-index: 10;
   .firstLetter {
     background-color: #7b6079;
     color: #fff;
@@ -87,7 +132,7 @@ const LogoTitle = styled.h1`
   }
   .other {
     position: absolute;
-    left: 260px;
+    left: 240px;
   }
 `;
 const NavLinks = styled.ul`
